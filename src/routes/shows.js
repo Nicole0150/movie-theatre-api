@@ -7,7 +7,7 @@ showRouter.use(express.json());
 showRouter.use(express.urlencoded({extended: true})); 
 
 showRouter.get("/", async (req, res) =>{
-    const users = await User.findAll();
+    const users = await Show.findAll();
     res.json(users);
 });
 

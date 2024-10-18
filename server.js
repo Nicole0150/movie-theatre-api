@@ -19,13 +19,11 @@
 //     console.log(`Listening at http://localhost:${port}/restaurants`);
 // })
 
-const express = require('express');
-const app = express();
-const PORT = 3000;
-const {db} = require("./db/connection")
+const app = require("./src/app");
+const { db } = require("./db/connection")
+const port = 3000;
 
-
-app.listen(PORT, () => {
+app.listen(port, () => {
     db.sync();
-    console.log(`Server is running on http://localhost:${PORT}`);
-});
+    console.log(`Listening at http://localhost:${port}`)
+})
