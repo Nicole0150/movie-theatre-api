@@ -3,6 +3,8 @@ const showRouter = express.Router();
 const User = require("../../models/User");
 const Show = require("../../models/Show");
 
+showRouter.use(express.json()); 
+showRouter.use(express.urlencoded({extended: true})); 
 
 showRouter.get("/", async (req, res) =>{
     const users = await User.findAll();
