@@ -9,19 +9,19 @@ usersRouter.get("/", async (request, response) => {
     response.json(users); // returns all the info
 })
 
-userRouter.get("/:id", async (req, res) =>{
+usersRouter.get("/:id", async (req, res) =>{
     const parameter = req.params.id;
     const user = await User.findByPk(parameter);
     res.json(user);
 })
 
-userRouter.get("/:id/shows", async (req, res) =>{
+usersRouter.get("/:id/shows", async (req, res) =>{
     const parameter = req.params.id;
     const user = await User.findByPk(parameter, {include: Show});
     res.json(user);
 })
 
-userRouter.post("/:id/:showid", async(req, res) =>{
+usersRouter.post("/:id/:showid", async(req, res) =>{
     const {id, showId} = req.params;
     const user = await User.findByPk(id);
     const show = await Show.findByPk(showId);

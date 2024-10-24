@@ -21,12 +21,12 @@
 // module.exports = app;
 const express = require("express");
 const app = express();
-const showRouter = require("../routes/shows")
-const userRouter = require("../routes/users")
+const showRouter = require("../src/routes/shows")
+const usersRouter = require("../src/routes/user")
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/shows", showRouter);
-app.use("/users", userRouter);
+app.use("/users", usersRouter);
 
 module.exports = app;
